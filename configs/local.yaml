@@ -1,0 +1,33 @@
+server:
+  port: 8080
+  mode: "dev"
+database:
+  host: localhost
+  port: 5432
+  user: admin
+  password: admin
+  dbName: shopDEV
+security:
+  jwt:
+    key: abc123
+mysql:
+  host: localhost #mysql_container
+  port: 3306 #3306
+  user: root
+  password: root1234
+  dbName: shopdevgo
+  maxIdleConns: 10
+  maxOpenConns: 100
+  connMaxLifetime: 3600
+logger:
+  log_level: debug
+  log_file: './storages/logs/app.log'
+  max_size: 500
+  max_backups: 3
+  max_age: 28
+  compress: true
+redis:
+  host: localhost #redis_container
+  port: 6379  #6381
+  password: ""
+  database: 0

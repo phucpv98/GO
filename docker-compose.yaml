@@ -1,0 +1,76 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_container
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_DATABASE: shopdevgo
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app_network
+
+  redis:
+    image: redis:7.0-alpine
+    container_name: redis_container
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - app_network
+
+  # kafka:
+  #   image: confluentinc/cp-kafka:7.6.0
+  #   container_name: kafka_container
+  #   restart: unless-stopped
+  #   environment:
+  #     KAFKA_NODE_ID: 1
+  #     KAFKA_PROCESS_ROLES: broker,controller
+  #     KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093,EXTERNAL://0.0.0.0:19092
+  #     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,EXTERNAL://localhost:19092
+  #     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT
+  #     KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+  #     KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+  #     KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+  #     KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+  #     KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+  #     CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+  #   ports:
+  #     - "9092:9092"
+  #     - "19092:19092"
+  #   volumes:
+  #     - kafka_data:/var/lib/kafka/data
+  #   networks:
+  #     - app_network
+
+  # kafka-ui:
+  #   image: provectuslabs/kafka-ui:latest
+  #   container_name: kafka_ui
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - kafka
+  #   environment:
+  #     KAFKA_CLUSTERS_0_NAME: local
+  #     KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+  #   ports:
+  #     - "9089:8080"
+  #   links:
+  #     - kafka
+  #   networks:
+  #     - app_network
+
+volumes:
+  mysql_data:
+  redis_data:
+  # kafka_data:
+
+networks:
+  app_network:
+    driver: bridge
