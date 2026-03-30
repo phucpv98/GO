@@ -1,5 +1,10 @@
 package repo
 
+import (
+	"go-ecommerce/global"
+	"go-ecommerce/internal/models"
+)
+
 // type UserRepo struct{}
 
 // func NewUserRepo() *UserRepo {
@@ -23,5 +28,7 @@ func NewUserRepository() IUserRepository {
 
 // GetUserByEmail implements [IUserRepository].
 func (u *userRepository) GetUserByEmail(email string) bool {
-	return true
+	// SELECT * FROM user WHERE email = '??' ORDER BY email
+	row := global.Mdb.Table(TableNameGoCrmUser).Where("usr_email = ?", email).First(&models.GoCrmUser{}).RowsAffected
+	return row != NumberNull
 }

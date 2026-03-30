@@ -24,18 +24,22 @@ const (
 	ErrorCodeConflict       = 1005
 	ErrorCodeServerError    = 1006
 
-	ErrorCodeSuccess       = 20001 // Success
+	CodeSuccess            = 20001 // Success
 	ErrorCodeParamsInvalid = 20003 // Email is invalid
 	ErrorInvalidToken      = 30001 // Invalid token
+	ErrorInvalidOTP        = 30002 // Invalid OTP
+	ErrorSendEmailOTP      = 30003 // Send email OTP failed
 
 	// Register Code
 	ErrorCodeUserHasExisted = 50001 // User has existed
 )
 
 var msg = map[int]string{
-	ErrorCodeSuccess:       "Success",
+	CodeSuccess:            "Success",
 	ErrorCodeParamsInvalid: "Email is invalid",
 	ErrorInvalidToken:      "Invalid token",
+	ErrorInvalidOTP:        "OTP Error",
+	ErrorSendEmailOTP:      "Send email OTP failed",
 
 	ErrorCodeUserHasExisted: "User has existed",
 }

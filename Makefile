@@ -1,5 +1,7 @@
 # name app
 APP_NAME = server
 
-run:
+dev:
 	go run ./cmd/$(APP_NAME)/main.go
+
+.PHONY: air

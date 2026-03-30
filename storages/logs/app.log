@@ -6,3 +6,9 @@
 {"level":"INFO","time":"2026-03-11T21:01:34.643+0700","caller":"initialize/mysql.go:31","msg":"InitMysql initialization success"}
 {"level":"INFO","time":"2026-03-11T21:15:34.020+0700","caller":"initialize/mysql.go:31","msg":"InitMysql initialization success"}
 {"level":"INFO","time":"2026-03-11T21:28:55.362+0700","caller":"initialize/mysql.go:31","msg":"InitMysql initialization success"}
+{"level":"INFO","time":"2026-03-11T22:16:31.487+0700","caller":"initialize/mysql.go:31","msg":"InitMysql initialization success"}
+{"level":"INFO","time":"2026-03-31T03:01:28.431+0700","caller":"initialize/mysql.go:31","msg":"InitMysql initialization success"}
+{"level":"INFO","time":"2026-03-31T03:05:08.102+0700","caller":"initialize/mysql.go:31","msg":"InitMysql initialization success"}
+{"level":"INFO","time":"2026-03-31T03:17:41.272+0700","caller":"initialize/mysql.go:31","msg":"InitMysql initialization success"}
+{"level":"INFO","time":"2026-03-31T03:20:43.417+0700","caller":"initialize/mysql.go:31","msg":"InitMysql initialization success"}
+{"level":"INFO","time":"2026-03-31T03:22:32.900+0700","caller":"initialize/mysql.go:31","msg":"InitMysql initialization success"}
