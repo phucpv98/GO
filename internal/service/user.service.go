@@ -5,7 +5,9 @@ import (
 	"go-ecommerce/internal/repo"
 	"go-ecommerce/internal/utils/crypto"
 	"go-ecommerce/internal/utils/random"
+	"go-ecommerce/internal/utils/sendto"
 	"go-ecommerce/response"
+	"strconv"
 	"time"
 )
 
@@ -54,6 +56,11 @@ func (us *userService) Register(email string, purpose string) int {
 	// if err != nil {
 	// 	return response.ErrorSendEmailOTP
 	// }
+
+	err = sendto.SendEmailToJavaByAPI(strconv.Itoa(otp), email, "otp-auth.html")
+	if err != nil {
+		return response.ErrorSendEmailOTP
+	}
 
 	return response.CodeSuccess
 }

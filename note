@@ -1,0 +1,16 @@
+Goose : migration tool - quản lí phiên bản cơ sở dữ liệu.
+SQLC : generate code from SQL.
+
+
+goose -dir sql/schema create pre_go_crm_user_c sql
+    tự động tạo file migration với tên tương ứng + time
+
+docker exec -it <name_container> bash
+    truy cập vào bên trong docker container.
+
+mysql -uroot -proot1234
+    truy cập vào mysql
+use <name_database>
+    chọn database
+show tables;
+    xem danh sách các bảng

@@ -12,3 +12,6 @@
 {"level":"INFO","time":"2026-03-31T03:17:41.272+0700","caller":"initialize/mysql.go:31","msg":"InitMysql initialization success"}
 {"level":"INFO","time":"2026-03-31T03:20:43.417+0700","caller":"initialize/mysql.go:31","msg":"InitMysql initialization success"}
 {"level":"INFO","time":"2026-03-31T03:22:32.900+0700","caller":"initialize/mysql.go:31","msg":"InitMysql initialization success"}
+{"level":"INFO","time":"2026-04-02T00:53:02.039+0700","caller":"initialize/mysql.go:31","msg":"InitMysql initialization success"}
+{"level":"INFO","time":"2026-04-02T19:51:05.022+0700","caller":"initialize/mysql.go:31","msg":"InitMysql initialization success"}
+{"level":"INFO","time":"2026-04-02T20:27:51.995+0700","caller":"initialize/mysqlc.go:28","msg":"InitMysqlc initialization success"}
