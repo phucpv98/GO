@@ -2,7 +2,6 @@ package user
 
 import (
 	"go-ecommerce/internal/controller/account"
-	"go-ecommerce/internal/wire"
 
 	"github.com/gin-gonic/gin"
 )
@@ -10,12 +9,11 @@ import (
 type UserRouter struct{}
 
 func (pr *UserRouter) InitUserRouter(Router *gin.RouterGroup) {
-	userController, _ := wire.InitUserRouterHandler()
 
 	// Public Router
 	userRouterPublic := Router.Group("/user")
 	{
-		userRouterPublic.POST("/register", userController.Register)
+		userRouterPublic.POST("/register", account.LoginController.Register)
 		userRouterPublic.POST("/otp")
 		userRouterPublic.POST("/login", account.LoginController.Login)
 	}

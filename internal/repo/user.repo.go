@@ -1,7 +1,6 @@
 package repo
 
 import (
-	"fmt"
 	"go-ecommerce/global"
 	"go-ecommerce/internal/database"
 )
@@ -37,10 +36,12 @@ func (up *userRepository) GetUserByEmail(email string) bool {
 	// row := global.Mdb.Table(TableNameGoCrmUser).Where("usr_email = ?", email).First(&models.GoCrmUser{}).RowsAffected
 	// return row != NumberNull
 
-	user, err := up.sqlc.GetUserByEmailSQLC(ctx, email)
-	if err != nil {
-		return false
-	}
-	fmt.Println("Get User By Email: ", user)
-	return user.UsrID != 0
+	// user, err := up.sqlc.GetUserByEmailSQLC(ctx, email)
+	// if err != nil {
+	// 	return false
+	// }
+	// fmt.Println("Get User By Email: ", user)
+	// return user.UsrID != 0
+
+	return false
 }

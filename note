@@ -1,12 +1,32 @@
 Goose : migration tool - quản lí phiên bản cơ sở dữ liệu.
 SQLC : generate code from SQL.
 
+make create_migration name=name_file_migration
 
 goose -dir sql/schema create pre_go_crm_user_c sql
     tự động tạo file migration với tên tương ứng + time
 
+Định nghĩa sql/queries/...
+    Nơi định nghĩa các câu truy vấn SQL.
+    
+make generate   (thông qua file sqlc.yaml)
+    từ sql/queries/...sql tự động generate internal/database/...go
+
+
 docker exec -it <name_container> bash
     truy cập vào bên trong docker container.
+
+docker exec -it <name_redis_container> redis-cli
+    truy cập vào bên trong redis.
+
+get u:<verify_key_hash>:otp
+    lấy otp
+
+del u:<verify_key_hash>:otp
+    xóa otp
+
+ttl u:<verify_key_hash>:otp
+    thời gian còn lại của otp
 
 mysql -uroot -proot1234
     truy cập vào mysql

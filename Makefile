@@ -1,4 +1,4 @@
-GOOSE_DRIVE ?= mysql
+GOOSE_DRIVER ?= mysql
 GOOSE_DBSTRING ?= "root:root1234@tcp(127.0.0.1:3306)/shopdevgo"
 GOOSE_MIGRATION_DIR ?= sql/schema
 
@@ -18,17 +18,23 @@ docker_logs:
 docker_up:
 	docker compose up -d
 
+create_migration:
+	@goose -dir=$(GOOSE_MIGRATION_DIR) create $(name) sql
+
+up_by_one:
+	@GOOSE_DRIVER=$(GOOSE_DRIVER) GOOSE_DBSTRING=$(GOOSE_DBSTRING) goose -dir=$(GOOSE_MIGRATION_DIR) up-by-one
+
 dev:
 	go run ./cmd/$(APP_NAME)/main.go
 
 upse:
-	@GOOSE_DRIVE=$(GOOSE_DRIVE) GOOSE_DBSTRING=$(GOOSE_DBSTRING) goose -dir $(GOOSE_MIGRATION_DIR) up
+	@GOOSE_DRIVER=$(GOOSE_DRIVER) GOOSE_DBSTRING=$(GOOSE_DBSTRING) goose -dir $(GOOSE_MIGRATION_DIR) up
 
 downse:
-	@GOOSE_DRIVE=$(GOOSE_DRIVE) GOOSE_DBSTRING=$(GOOSE_DBSTRING) goose -dir $(GOOSE_MIGRATION_DIR) down
+	@GOOSE_DRIVER=$(GOOSE_DRIVER) GOOSE_DBSTRING=$(GOOSE_DBSTRING) goose -dir $(GOOSE_MIGRATION_DIR) down
 
 resetse:
-	@GOOSE_DRIVE=$(GOOSE_DRIVE) GOOSE_DBSTRING=$(GOOSE_DBSTRING) goose -dir $(GOOSE_MIGRATION_DIR) reset
+	@GOOSE_DRIVER=$(GOOSE_DRIVER) GOOSE_DBSTRING=$(GOOSE_DBSTRING) goose -dir $(GOOSE_MIGRATION_DIR) reset
 
 sqlgen:
 	sqlc generate

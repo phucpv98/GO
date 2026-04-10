@@ -32,14 +32,16 @@ const (
 
 	// Register Code
 	ErrorCodeUserHasExisted = 50001 // User has existed
+	ErrorCodeOtpNotExists   = 50002 // OTP exists but not registered
 )
 
 var msg = map[int]string{
 	CodeSuccess:            "Success",
-	ErrorCodeParamsInvalid: "Email is invalid",
+	ErrorCodeParamsInvalid: "Code is invalid",
 	ErrorInvalidToken:      "Invalid token",
 	ErrorInvalidOTP:        "OTP Error",
 	ErrorSendEmailOTP:      "Send email OTP failed",
 
 	ErrorCodeUserHasExisted: "User has existed",
+	ErrorCodeOtpNotExists:   "OTP exists but not registered",
 }

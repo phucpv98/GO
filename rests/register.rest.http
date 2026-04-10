@@ -1,0 +1,9 @@
+@baseUrl=http://localhost:8080/api/v1
+POST {{baseUrl}}/user/register
+Content-Type: application/json
+
+{
+    "verify_key": "test1@email.com",
+    "verify_type": 1,
+    "verify_purpose": "TEST_USER"
+}
